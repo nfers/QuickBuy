@@ -1,1 +1,4 @@
 # QuickBuy
+
+
+-- em desenvolvimento
