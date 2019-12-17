@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuickBuy.Domain.Entities
 {
-    class Request
+    class Request : Entity
     {
         public int Id { get; set; }
         public DateTime RequestDate { get; set; }
