@@ -1,6 +1,7 @@
 ﻿using QuickBuy.Domain.ObjectValues;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace QuickBuy.Domain.Entities
@@ -20,5 +21,15 @@ namespace QuickBuy.Domain.Entities
         
         public ICollection<Payment> Payments { get; set; }
         public ICollection<RequestItem> RequestsItems { get; set; }
+
+        public override void Validate()
+        {
+            ClearMessages();
+
+            if (!RequestsItems.Any())
+                AddCriti("Atention: item cannot be empty");
+            if (string.IsNullOrEmpty(ZipCode))
+                AddCriti("Atention: zipcode cannot be empty");
+        }
     }
 }
