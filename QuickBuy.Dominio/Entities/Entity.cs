@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuickBuy.Domain.Entidades
+namespace QuickBuy.Domain.Entities
 {
-    public abstract class Entidade
+    public abstract class Entity
     {
 
 

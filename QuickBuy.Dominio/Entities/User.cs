@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuickBuy.Domain.Entidades
+namespace QuickBuy.Domain.Entities
 {
     public class User
     {
@@ -11,5 +11,7 @@ namespace QuickBuy.Domain.Entidades
         public string Password { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        public ICollection<Request> Requests { get; set; }
     }
 }

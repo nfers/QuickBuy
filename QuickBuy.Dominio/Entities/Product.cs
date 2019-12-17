@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QuickBuy.Domain.Entidades
+namespace QuickBuy.Domain.Entities
 {
     class Product
     {
@@ -10,6 +10,8 @@ namespace QuickBuy.Domain.Entidades
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+
+
 
     }
 }
