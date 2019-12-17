@@ -27,9 +27,9 @@ namespace QuickBuy.Domain.Entities
             ClearMessages();
 
             if (!RequestsItems.Any())
-                AddCriti("Atention: item cannot be empty");
-            if (string.IsNullOrEmpty(ZipCode))
-                AddCriti("Atention: zipcode cannot be empty");
+                AddCriti("Atention: Item do pedido nao pode ser vazio");
+            if (string.IsNullOrEmpty(Address))
+                AddCriti("Atention: Endereço não pode ser vazio");
         }
     }
 }

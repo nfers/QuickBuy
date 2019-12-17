@@ -13,5 +13,12 @@ namespace QuickBuy.Domain.Entities
         public string Surname { get; set; }
 
         public ICollection<Request> Requests { get; set; }
+
+        public override void Validate()
+        {
+            ClearMessages();
+            if (string.IsNullOrEmpty(Name))
+                AddCriti("Atention: zipcode cannot be empty");
+        }
     }
 }
