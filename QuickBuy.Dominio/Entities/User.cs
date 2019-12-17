@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuickBuy.Domain.Entities
 {
-    public class User
+     class User
     {
         public int Id { get; set; }
         public string Email { get; set; }
