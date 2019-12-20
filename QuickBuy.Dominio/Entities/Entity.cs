@@ -25,6 +25,8 @@ namespace QuickBuy.Domain.Entities
             get { return !ValidationMessages.Any(); }
         }
 
+        public ICollection<Request> Requests { get; set; }
+
 
     }
 }
