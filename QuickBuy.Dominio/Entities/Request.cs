@@ -27,9 +27,16 @@ namespace QuickBuy.Domain.Entities
             ClearMessages();
 
             if (!RequestsItems.Any())
-                AddCriti("Atention: Item do pedido nao pode ser vazio");
+                AddCriti("Importante - Pedido: Item do pedido nao pode ser vazio");
+
             if (string.IsNullOrEmpty(Address))
-                AddCriti("Atention: Endereço não pode ser vazio");
+                AddCriti("Importante - Pedido: Endereço não pode ser vazio");
+
+            if (string.IsNullOrEmpty(ZipCode))
+                AddCriti("Importante - Pedido: CEP não pode estar vazio");
+
+            if (PaymentId == 0)
+                AddCriti("Importante - Pedido: Forma de Pagamento não pode ser nula");
         }
     }
 }

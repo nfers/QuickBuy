@@ -14,6 +14,7 @@ namespace QuickBuy.Domain.Entities
         public override void Validate()
         {
             ClearMessages();
+
             if (string.IsNullOrEmpty(Name))
                 AddCriti("Atention: name cannot be empty");
         }

@@ -15,8 +15,8 @@ namespace QuickBuy.Domain.Entities
         {
             ClearMessages();
 
-            if (!Products.Any())
-                AddCriti("Atention: item cannot be empty");
+            if (ProductId == 0)
+                AddCriti("Importante - Item Pedido: Produto precisa ser informado");
         }
 
     }
