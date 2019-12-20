@@ -24,9 +24,5 @@ namespace QuickBuy.Domain.Entities
         protected bool IsValid {
             get { return !ValidationMessages.Any(); }
         }
-
-        public ICollection<Request> Requests { get; set; }
-
-
     }
 }
