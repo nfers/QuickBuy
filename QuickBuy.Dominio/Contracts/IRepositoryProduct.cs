@@ -5,10 +5,8 @@ using System.Text;
 
 namespace QuickBuy.Domain.Contracts
 {
-    interface IUserRepository : IRepositoryBase<User>
+    interface IRepositoryProduct : IRepositoryBase<Product>
     {
-        
+
     }
 }
-
-//Interface de repositorio do usuario
