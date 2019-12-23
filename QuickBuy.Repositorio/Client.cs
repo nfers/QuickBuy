@@ -11,7 +11,7 @@ namespace QuickBuy.Repository
         public Client()
         {
             var userRepository = new UserRepository();
-            var user = new Product();
+            var user = new User();
 
             userRepository.Add(user);
         }
