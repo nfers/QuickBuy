@@ -6,7 +6,7 @@ using System.Text;
 
 namespace QuickBuy.Domain.Entities
 {
-    class Request : Entity
+    public class Request : Entity
     {
         public int Id { get; set; }
         public DateTime RequestDate { get; set; }
@@ -36,7 +36,7 @@ namespace QuickBuy.Domain.Entities
                 AddCriti("Importante - Pedido: CEP não pode estar vazio");
 
             if (PaymentId == 0)
-                AddCriti("Importante - Pedido: Forma de Pagamento não pode ser nula");
+                AddCriti("Importante - Pedido: Forma de Pagamento precisa ser informada");
         }
     }
 }
