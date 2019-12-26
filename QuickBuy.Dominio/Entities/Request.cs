@@ -13,7 +13,7 @@ namespace QuickBuy.Domain.Entities
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public string ZipCode { get; set; } //criar entidade separada depois
+        public string ZipCode { get; set; } //criar entidade de cidade, endereco e estado
         public string State { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
