@@ -12,11 +12,16 @@ namespace QuickBuy.Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
 
+        public ICollection<Request> Requests { get; set; }
         public override void Validate()
         {
             ClearMessages();
+
             if (string.IsNullOrEmpty(Name))
-                AddCriti("Atention: zipcode cannot be empty");
+                AddCriti("Atention: o Cep precisa ser informado");
+
+            if (string.IsNullOrEmpty(Email))
+                AddCriti("Usuario - Atenção: e-mail não foi informado");
         }
     }
 }
