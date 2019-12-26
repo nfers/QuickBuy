@@ -9,7 +9,17 @@ namespace QuickBuy.Repository.Config
     {
         public void Configure(EntityTypeBuilder<Payment> builder)
         {
-            
+            builder.HasKey(f => f.Id);
+
+            builder
+                .Property(f => f.Name)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            builder
+                .Property(f => f.Description)
+                .IsRequired()
+                .HasMaxLength(100);           
         }
     }
 }
