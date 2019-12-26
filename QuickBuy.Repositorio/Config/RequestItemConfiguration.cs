@@ -9,10 +9,18 @@ namespace QuickBuy.Repository.Config
 {
     public class RequestItemConfiguration : IEntityTypeConfiguration<RequestItem>
     {          
-
         public void Configure(EntityTypeBuilder<RequestItem> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasKey(i => i.Id);
+
+            builder
+                .Property(i => i.ProductId)
+                .IsRequired();
+
+            builder
+                .Property(i => i.Amount)
+                .IsRequired();
         }
     }
 }

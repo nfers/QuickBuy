@@ -9,7 +9,7 @@ namespace QuickBuy.Repository.Config
     {
         public void Configure(EntityTypeBuilder<Payment> builder)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
