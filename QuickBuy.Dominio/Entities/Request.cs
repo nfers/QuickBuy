@@ -11,6 +11,7 @@ namespace QuickBuy.Domain.Entities
         public int Id { get; set; }
         public DateTime RequestDate { get; set; }
         public int UserId { get; set; }
+        public virtual User User { get; set; }
         public DateTime DeliveryDate { get; set; }
         public string ZipCode { get; set; } //criar entidade separada depois
         public string State { get; set; }

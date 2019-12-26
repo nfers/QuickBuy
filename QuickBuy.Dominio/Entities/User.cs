@@ -12,7 +12,8 @@ namespace QuickBuy.Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        public ICollection<Request> Requests { get; set; }
+        //Um usuario pode ter muitos pedidos, relacionamento 1 => N
+        public virtual ICollection<Request> Requests { get; set; }
         public override void Validate()
         {
             ClearMessages();
