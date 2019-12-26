@@ -19,7 +19,7 @@ namespace QuickBuy.Domain.Entities
         public string Address { get; set; }
         public int NumberHouse { get; set; }
         public int PaymentId { get; set; }
-        
+                
         public Payment Payment { get; set; } //Objeto de Valor
         public ICollection<RequestItem> RequestsItems { get; set; }
 
