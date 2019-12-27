@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuickBuy.Domain.Contracts
 {
-    interface IRepositoryProduct : IRepositoryBase<Product>
+    public interface IRepositoryProduct : IRepositoryBase<Product>
     {
 
     }

@@ -11,14 +11,15 @@ namespace QuickBuy.Domain.Entities
         public int Id { get; set; }
         public DateTime RequestDate { get; set; }
         public int UserId { get; set; }
+        public virtual User User { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public string ZipCode { get; set; } //criar entidade separada depois
+        public string ZipCode { get; set; } //criar entidade de cidade, endereco e estado
         public string State { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
         public int NumberHouse { get; set; }
         public int PaymentId { get; set; }
-        
+                
         public Payment Payment { get; set; } //Objeto de Valor
         public ICollection<RequestItem> RequestsItems { get; set; }
 
@@ -36,7 +37,7 @@ namespace QuickBuy.Domain.Entities
                 AddCriti("Importante - Pedido: CEP não pode estar vazio");
 
             if (PaymentId == 0)
-                AddCriti("Importante - Pedido: Forma de Pagamento não pode ser nula");
+                AddCriti("Importante - Pedido: Forma de Pagamento precisa ser informada");
         }
     }
 }

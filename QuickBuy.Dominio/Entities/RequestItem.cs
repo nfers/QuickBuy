@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuickBuy.Domain.Entities
 {
-    public class RequestItem : Entity
+   public class RequestItem : Entity
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
@@ -13,7 +13,7 @@ namespace QuickBuy.Domain.Entities
 
         public ICollection<Product> Products { get; set; }   
         
-         public override void Validate()
+        public override void Validate()
         {
             ClearMessages();
 
@@ -24,6 +24,5 @@ namespace QuickBuy.Domain.Entities
                 AddCriti("Importante - Item Pedido: item cannot be empty");
 
         }
-
     }
 }
