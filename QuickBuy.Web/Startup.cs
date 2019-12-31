@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using QuickBuy.Domain.Contracts;
 using QuickBuy.Repository.Context;
+using QuickBuy.Repository.Repositories;
 
 namespace QuickBuy.Web
 {
@@ -18,24 +21,28 @@ namespace QuickBuy.Web
         {
             var builder = new ConfigurationBuilder();
 
-            builder.AddJsonFile("config.json", optional:false, reloadOnChange: true);
+            builder.AddJsonFile("config.json", optional: false, reloadOnChange: true);
 
             Configuration = builder.Build() ;
         }
- 
-        // This method gets called by the runtime. Use this method to add services to the container.
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            var connectionString = Configuration.GetConnectionString("MySqlConnection");
+            var connectionString = Configuration.GetConnectionString("QuickBuyDB");
+            services.AddDbContext<DatabaseContext>(option =>
+                                                        option.UseLazyLoadingProxies()
+                                                        .UseMySql(connectionString,
+                                                                            m => m.MigrationsAssembly("QuickBuy.Repository")));
 
-            services.AddDbContext<DatabaseContext>(option => 
-                                                    option.UseLazyLoadingProxies()
-                                                    .UseMySql(connectionString, 
-                                                        m => m.MigrationsAssembly("QuickBuy.Repository")));
+            services.AddScoped<IRepositoryProduct, ProductRepository>();
+            services.AddScoped<IRepositoryUser, UserRepository>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -45,7 +52,7 @@ namespace QuickBuy.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -60,19 +67,13 @@ namespace QuickBuy.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
+            app.UseSpaStaticFiles();
 
-            app.UseRouting();
-            app.UseCors();
-
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
+                routes.MapRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    template: "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>
@@ -84,8 +85,8 @@ namespace QuickBuy.Web
 
                 if (env.IsDevelopment())
                 {
-                    //spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/"); // publica diretamente
+                    // spa.UseAngularCliServer(npmScript: "start");                    
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
                 }
             });
         }
