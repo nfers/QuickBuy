@@ -20,8 +20,8 @@ namespace QuickBuy.Domain.Entities
         public int NumberHouse { get; set; }
         public int PaymentId { get; set; }
                 
-        public Payment Payment { get; set; } //Objeto de Valor
-        public ICollection<RequestItem> RequestsItems { get; set; }
+        public virtual Payment Payment { get; set; } //Objeto de Valor
+        public virtual ICollection<RequestItem> RequestsItems { get; set; }
 
         public override void Validate()
         {
