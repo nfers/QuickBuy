@@ -28,7 +28,6 @@ namespace QuickBuy.Repository.Context
              
         }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ///Referencia as classes de mapeamento
@@ -37,6 +36,26 @@ namespace QuickBuy.Repository.Context
             modelBuilder.ApplyConfiguration(new RequestConfiguration());
             modelBuilder.ApplyConfiguration(new RequestItemConfiguration());
             modelBuilder.ApplyConfiguration(new PaymentConfiguration());
+
+            modelBuilder.Entity<Payment>().HasData(
+                new Payment()
+                {
+                    Id = 1,
+                    Name = "BankSlip",
+                    Description = "Forma de Pagamento Boleto" },
+                new Payment()
+                {
+                    Id = 2,
+                    Name = "CreditCard",
+                    Description = "Forma de Pagamento Cartão de Crédito" },
+                new Payment()
+                {
+                    Id = 3,
+                    Name = "Deposit",
+                    Description = "Forma de Pagamento Deposito"
+                }
+            );
+
 
             base.OnModelCreating(modelBuilder);
         }
