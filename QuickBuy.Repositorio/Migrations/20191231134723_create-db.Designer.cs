@@ -9,7 +9,7 @@ using QuickBuy.Repository.Context;
 namespace QuickBuy.Repository.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20191231130422_create-db")]
+    [Migration("20191231134723_create-db")]
     partial class createdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,7 +40,7 @@ namespace QuickBuy.Repository.Migrations
 
                     b.HasIndex("RequestItemId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("QuickBuy.Domain.Entities.Request", b =>
@@ -79,7 +79,7 @@ namespace QuickBuy.Repository.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Requests");
+                    b.ToTable("Request");
                 });
 
             modelBuilder.Entity("QuickBuy.Domain.Entities.RequestItem", b =>
@@ -97,7 +97,7 @@ namespace QuickBuy.Repository.Migrations
 
                     b.HasIndex("RequestId");
 
-                    b.ToTable("RequestsItems");
+                    b.ToTable("RequestItem");
                 });
 
             modelBuilder.Entity("QuickBuy.Domain.Entities.User", b =>
@@ -123,7 +123,7 @@ namespace QuickBuy.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("QuickBuy.Domain.ObjectValues.Payment", b =>
@@ -141,7 +141,7 @@ namespace QuickBuy.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Payments");
+                    b.ToTable("Payment");
                 });
 
             modelBuilder.Entity("QuickBuy.Domain.Entities.Product", b =>

@@ -9,7 +9,7 @@ namespace QuickBuy.Repository.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Payments",
+                name: "Payment",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,11 +19,11 @@ namespace QuickBuy.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Payments", x => x.Id);
+                    table.PrimaryKey("PK_Payment", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -35,11 +35,11 @@ namespace QuickBuy.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Requests",
+                name: "Request",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -56,23 +56,23 @@ namespace QuickBuy.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Requests", x => x.Id);
+                    table.PrimaryKey("PK_Request", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Requests_Payments_PaymentId",
+                        name: "FK_Request_Payment_PaymentId",
                         column: x => x.PaymentId,
-                        principalTable: "Payments",
+                        principalTable: "Payment",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Requests_Users_UserId",
+                        name: "FK_Request_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RequestsItems",
+                name: "RequestItem",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -83,17 +83,17 @@ namespace QuickBuy.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RequestsItems", x => x.Id);
+                    table.PrimaryKey("PK_RequestItem", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RequestsItems_Requests_RequestId",
+                        name: "FK_RequestItem_Request_RequestId",
                         column: x => x.RequestId,
-                        principalTable: "Requests",
+                        principalTable: "Request",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Product",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -105,52 +105,52 @@ namespace QuickBuy.Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_Product", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_RequestsItems_RequestItemId",
+                        name: "FK_Product_RequestItem_RequestItemId",
                         column: x => x.RequestItemId,
-                        principalTable: "RequestsItems",
+                        principalTable: "RequestItem",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_RequestItemId",
-                table: "Products",
+                name: "IX_Product_RequestItemId",
+                table: "Product",
                 column: "RequestItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_PaymentId",
-                table: "Requests",
+                name: "IX_Request_PaymentId",
+                table: "Request",
                 column: "PaymentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Requests_UserId",
-                table: "Requests",
+                name: "IX_Request_UserId",
+                table: "Request",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RequestsItems_RequestId",
-                table: "RequestsItems",
+                name: "IX_RequestItem_RequestId",
+                table: "RequestItem",
                 column: "RequestId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Product");
 
             migrationBuilder.DropTable(
-                name: "RequestsItems");
+                name: "RequestItem");
 
             migrationBuilder.DropTable(
-                name: "Requests");
+                name: "Request");
 
             migrationBuilder.DropTable(
-                name: "Payments");
+                name: "Payment");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
         }
     }
 }
