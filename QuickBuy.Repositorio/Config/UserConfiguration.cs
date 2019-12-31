@@ -21,19 +21,17 @@ namespace QuickBuy.Repository.Config
             builder
                 .Property(u => u.Name)
                 .IsRequired()
-                .HasMaxLength(150)
-                .HasColumnType("varchar");
+                .HasMaxLength(150);
 
             builder
                 .Property(u => u.Password)
                 .IsRequired()
                 .HasMaxLength(150);
-            
+
             builder
                 .Property(u => u.Surname)
                 .IsRequired()
-                .HasMaxLength(150)
-                .HasColumnType("varchar");
+                .HasMaxLength(150);
 
             builder
                .HasMany(u => u.Requests)

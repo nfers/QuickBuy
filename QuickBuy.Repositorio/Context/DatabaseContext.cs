@@ -1,24 +1,33 @@
-﻿using IdentityModel.Client;
-using Microsoft.EntityFrameworkCore;
-using QuickBuy.Domain.Entities;
+﻿using QuickBuy.Domain.Entities;
 using QuickBuy.Domain.ObjectValues;
 using QuickBuy.Repository.Config;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace QuickBuy.Repository.Context
 {
     public class DatabaseContext : DbContext
     {
+        public DatabaseContext()
+        {
+
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<RequestItem> RequestsItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
 
-        
+              
         public DatabaseContext(DbContextOptions options) : base(options)
         {
-
+             
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,5 +40,6 @@ namespace QuickBuy.Repository.Context
 
             base.OnModelCreating(modelBuilder);
         }
+     
     }
 }

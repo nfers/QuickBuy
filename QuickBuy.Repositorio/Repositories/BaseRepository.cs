@@ -9,7 +9,7 @@ namespace QuickBuy.Repository.Repositories
     {
         public BaseRepository()
         {
-
+            throw new NotImplementedException();
         }
 
         public void Add(TEntity entity)
