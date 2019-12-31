@@ -1,11 +1,13 @@
 ﻿using QuickBuy.Domain.ObjectValues;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
 namespace QuickBuy.Domain.Entities
 {
+    [Table("Request")]
     public class Request : Entity
     {
         public int Id { get; set; }

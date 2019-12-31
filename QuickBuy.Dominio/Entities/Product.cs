@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuickBuy.Domain.Entities
 {
+    [Table("Product")]
     public class Product : Entity
     {
         public int Id { get; set; }

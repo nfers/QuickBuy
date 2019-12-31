@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace QuickBuy.Domain.Entities
 {
-     public class User : Entity
+    [Table("User")]
+    public class User : Entity
     {
         public int Id { get; set; }
         public string Email { get; set; }

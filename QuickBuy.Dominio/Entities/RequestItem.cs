@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
 namespace QuickBuy.Domain.Entities
 {
-   public class RequestItem : Entity
+    [Table("RequestItem")]
+    public class RequestItem : Entity
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
