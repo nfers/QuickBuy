@@ -14,7 +14,6 @@ namespace QuickBuy.Domain.Entities
         public int Id { get; set; }
         
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime RequestDate { get; set; }
 
         public int UserId { get; set; }
@@ -22,6 +21,7 @@ namespace QuickBuy.Domain.Entities
         
         [DataType(DataType.Date)]
         public DateTime DeliveryDate { get; set; }
+
         public string ZipCode { get; set; } //criar entidade de cidade, endereco e estado
         public string State { get; set; }
         public string City { get; set; }
@@ -30,13 +30,13 @@ namespace QuickBuy.Domain.Entities
         public int PaymentId { get; set; }
                 
         public virtual Payment Payment { get; set; } //Objeto de Valor
-        public virtual ICollection<RequestItem> RequestsItems { get; set; }
+        public virtual ICollection<RequestItem> RequestItems { get; set; }
 
         public override void Validate()
         {
             ClearMessages();
 
-            if (!RequestsItems.Any())
+            if (!RequestItems.Any())
                 AddCriti("Importante - Pedido: Item do pedido nao pode ser vazio");
 
             if (string.IsNullOrEmpty(Address))

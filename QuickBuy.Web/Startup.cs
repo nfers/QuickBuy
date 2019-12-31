@@ -35,6 +35,7 @@ namespace QuickBuy.Web
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var connectionString = Configuration.GetConnectionString("QuickBuyDB");
+
             services.AddDbContext<DatabaseContext>(option =>
                                                         option.UseLazyLoadingProxies()
                                                         .UseMySql(connectionString,
