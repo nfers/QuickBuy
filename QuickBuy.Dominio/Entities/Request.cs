@@ -1,6 +1,7 @@
 ﻿using QuickBuy.Domain.ObjectValues;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,15 @@ namespace QuickBuy.Domain.Entities
     public class Request : Entity
     {
         public int Id { get; set; }
+        
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime RequestDate { get; set; }
+
         public int UserId { get; set; }
         public virtual User User { get; set; }
+        
+        [DataType(DataType.Date)]
         public DateTime DeliveryDate { get; set; }
         public string ZipCode { get; set; } //criar entidade de cidade, endereco e estado
         public string State { get; set; }

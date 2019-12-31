@@ -12,6 +12,7 @@ namespace QuickBuy.Domain.ObjectValues
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
         public bool IsBankSlip
         {
             get { return Id == (int)MethodPaymentEnum.BankSlip; }
