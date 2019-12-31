@@ -19,13 +19,14 @@ namespace QuickBuy.Repository.Config
                 .HasMaxLength(50);
 
             builder
-                .Property(p => p.Description)
-                .IsRequired()
+                .Property(p => p.Description)               
                 .HasMaxLength(200);
 
             builder
                 .Property(p => p.Price)
-                .IsRequired();
+                .HasColumnType("decimal(19,4)");
+
+
         }
     }
 }
