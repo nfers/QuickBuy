@@ -1,7 +1,5 @@
 {
   "ConnectionStrings": {
-    "MySqlConnection": "server=localhost;uid=root;pwd=developer;database=db_quickbuy",
-    "PgConnection": "Host=my_host;Database=my_db;Username=postgres;Password=dev"
-  }
-  
+    "QuickBuyDB": "server=localhost;uid=root;pwd=root;database=db_quickbuy" 
+  } 
 }
