@@ -37,9 +37,8 @@ namespace QuickBuy.Web.Controllers
 
             try
             {
-                //var produto = new Product();
-                //produto.Name = "";
                 _productRepository.Add(produto);
+
                 return Created("api/product", produto);
             }catch (Exception ex)
             {
