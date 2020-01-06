@@ -69,6 +69,7 @@ namespace QuickBuy.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseCors();
 
             app.UseMvc(routes =>
             {
