@@ -23,14 +23,14 @@ namespace QuickBuy.Repository.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(200);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<decimal>("Price");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(19,4)");
 
                     b.Property<int?>("RequestItemId");
 
@@ -140,6 +140,26 @@ namespace QuickBuy.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Payment");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Forma de Pagamento Boleto",
+                            Name = "BankSlip"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Forma de Pagamento Cartão de Crédito",
+                            Name = "CreditCard"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Forma de Pagamento Deposito",
+                            Name = "Deposit"
+                        });
                 });
 
             modelBuilder.Entity("QuickBuy.Domain.Entities.Product", b =>
@@ -165,7 +185,7 @@ namespace QuickBuy.Repository.Migrations
             modelBuilder.Entity("QuickBuy.Domain.Entities.RequestItem", b =>
                 {
                     b.HasOne("QuickBuy.Domain.Entities.Request")
-                        .WithMany("RequestsItems")
+                        .WithMany("RequestItems")
                         .HasForeignKey("RequestId");
                 });
 #pragma warning restore 612, 618
