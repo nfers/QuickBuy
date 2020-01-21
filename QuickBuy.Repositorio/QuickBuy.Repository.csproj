@@ -4,22 +4,6 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20191231130422_create-db.cs" />
-    <Compile Remove="Migrations\20191231130422_create-db.Designer.cs" />
-    <Compile Remove="Migrations\20191231134615_create-db.cs" />
-    <Compile Remove="Migrations\20191231134615_create-db.Designer.cs" />
-    <Compile Remove="Migrations\20191231134723_create-db.cs" />
-    <Compile Remove="Migrations\20191231134723_create-db.Designer.cs" />
-    <Compile Remove="Migrations\20191231140010_create-db.cs" />
-    <Compile Remove="Migrations\20191231140010_create-db.Designer.cs" />
-    <Compile Remove="Migrations\20191231140855_create-db.cs" />
-    <Compile Remove="Migrations\20191231140855_create-db.Designer.cs" />
-    <Compile Remove="Migrations\20191231141638_create-db.cs" />
-    <Compile Remove="Migrations\20191231141638_create-db.Designer.cs" />
-    <Compile Remove="Migrations\20191231145052_table-load-payment.cs" />
-    <Compile Remove="Migrations\20191231145052_table-load-payment.Designer.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.0" />

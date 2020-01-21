@@ -1,9 +1,7 @@
 ﻿using QuickBuy.Domain.Contracts;
 using QuickBuy.Repository.Context;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace QuickBuy.Repository.Repositories
 {
