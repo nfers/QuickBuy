@@ -99,8 +99,8 @@ namespace QuickBuy.Repository.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Description = table.Column<string>(maxLength: 200, nullable: false),
-                    Price = table.Column<decimal>(nullable: false),
+                    Description = table.Column<string>(maxLength: 200, nullable: true),
+                    Price = table.Column<decimal>(type: "decimal(19,4)", nullable: false),
                     RequestItemId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -113,6 +113,21 @@ namespace QuickBuy.Repository.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Payment",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 1, "Forma de Pagamento Boleto", "BankSlip" });
+
+            migrationBuilder.InsertData(
+                table: "Payment",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 2, "Forma de Pagamento Cartão de Crédito", "CreditCard" });
+
+            migrationBuilder.InsertData(
+                table: "Payment",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 3, "Forma de Pagamento Deposito", "Deposit" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_RequestItemId",
