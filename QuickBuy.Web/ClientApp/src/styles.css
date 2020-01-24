@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,900&display=swap');
+
 a {
   color: #0366d6;
 }
@@ -13,4 +16,9 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+body {
+  background-color: #eff1ef;
+  font-family: 'Roboto', sans-serif;
 }

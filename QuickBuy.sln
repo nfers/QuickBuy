@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBuy.Domain", "QuickBuy.Dominio\QuickBuy.Domain.csproj", "{0E12FADD-B078-4814-BFAA-7484485B01C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Domain", "QuickBuy.Dominio\QuickBuy.Domain.csproj", "{0E12FADD-B078-4814-BFAA-7484485B01C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBuy.Repository", "QuickBuy.Repositorio\QuickBuy.Repository.csproj", "{772031F9-D42A-47B3-8E2B-27319AC695C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Repository", "QuickBuy.Repositorio\QuickBuy.Repository.csproj", "{772031F9-D42A-47B3-8E2B-27319AC695C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBuy.Web", "QuickBuy.Web\QuickBuy.Web.csproj", "{EC9FA277-B40C-43B5-ADE5-9DFDC8ED4489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Web", "QuickBuy.Web\QuickBuy.Web.csproj", "{EC9FA277-B40C-43B5-ADE5-9DFDC8ED4489}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{586AB8A2-16F3-4457-99C3-39A6639A2A89}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

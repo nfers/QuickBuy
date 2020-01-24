@@ -1,0 +1,13 @@
+//homepc
+{
+  "ConnectionStrings": {
+    "QuickBuyDB": "server=localhost;uid=root;pwd=developer;database=db_quickbuy"
+  }
+}
+
+//workpc
+/*{
+  "ConnectionStrings": {
+    "QuickBuyDB": "server=localhost;uid=root;pwd=root;database=db_quickbuy"
+  }
+}*/
