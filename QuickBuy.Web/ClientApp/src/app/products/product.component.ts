@@ -1,23 +1,24 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NumberValueAccessor } from '@angular/forms';
 
 @Component({
-  selector: 'app-fetch-data',
+  selector: 'app-product',
   templateUrl: './product.component.html'
 })
-export class FetchDataComponent {
-  public forecasts: Products[];
+export class ProductComponent {
+  public prods: Products[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Products[]>(baseUrl + 'api/product').subscribe(result => {
-      this.forecasts = result;
+      this.prods = result;
     }, error => console.error(error));
   }
 }
 
 interface Products {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+  id: number;
+  name: string;
+  description: string;
+  price: number;
 }
