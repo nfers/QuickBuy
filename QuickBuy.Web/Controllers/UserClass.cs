@@ -8,5 +8,13 @@ namespace QuickBuy.Web.Controllers
 {
     public class UserClass : Controller
     {
+        public UserClass()
+        {
+
+        }
+        
+        
+        
+      
     }
 }

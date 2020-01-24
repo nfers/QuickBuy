@@ -17,10 +17,10 @@ namespace QuickBuy.Repository.Repositories
             DatabaseContext = databaseContext;
         }
 
-        public void Add(TEntity entity)
+        public async void Add(TEntity entity)
         {
             DatabaseContext.Set<TEntity>().Add(entity);
-            DatabaseContext.SaveChanges();
+            await DatabaseContext.SaveChangesAsync();
         }
 
         public void Dispose()
