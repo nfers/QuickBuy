@@ -4,7 +4,8 @@ import { NumberValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html'
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
   public prods: Products[];
@@ -20,5 +21,5 @@ interface Products {
   id: number;
   name: string;
   description: string;
-  price: number;
+  price: string;
 }
