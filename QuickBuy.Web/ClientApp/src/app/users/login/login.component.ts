@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class LoginComponent {
+    public email = 'ncy.fers@gmail.com';
+    entrar() : void {
+     alert('entrar no sistema')   ;
+    }
 
 };

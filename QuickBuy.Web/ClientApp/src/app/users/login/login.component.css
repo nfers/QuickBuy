@@ -15,7 +15,7 @@ code {
   border-color: #1861ac;
 }
 
-*, body {
+div {
   background-color: #eff1ef;
   font-family: 'Roboto', sans-serif;
 }
@@ -40,4 +40,8 @@ code {
     height: auto;
     padding: 10px;
     font-size: 16px;
+}
+
+.login {
+    color: #666;
 }
