@@ -1,0 +1,43 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,900&display=swap');
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+*, body {
+  background-color: #eff1ef;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-sigin {
+    flex-direction: row;
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;  
+}
+
+.form-sigin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-sigin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
