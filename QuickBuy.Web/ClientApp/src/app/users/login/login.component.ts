@@ -22,6 +22,6 @@ export class LoginComponent {
         }
         else (this.usuarioAutenticado = false);
      alert(this.usuarioAutenticado.valueOf());    
-    }    
+    };    
 
 };
