@@ -19,9 +19,9 @@ export class LoginComponent {
     entrar() {
         if (this.user.email == "ncy.fers@gmail.com" && this.user.password == "123456") {
             this.usuarioAutenticado = true;
-        }
         else (this.usuarioAutenticado = false);
+
      alert(this.usuarioAutenticado.valueOf());    
     }    
-
+        }
 };
